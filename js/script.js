@@ -74,16 +74,16 @@ createTicketBtn.addEventListener ('click', function() {
 
       hasDiscount = true;
       price *= 0.8;
-      discountMessage = "Sconto -20%"
+      discountMessage = '<span class="correct">Sconto -20%</span>';
 
     } else if (age === "major") {
 
       hasDiscount = true;
       price *= 0.6;
-      discountMessage = "Sconto -40%"
+      discountMessage = '<span class="correct">Sconto -40%</span>';
     }
 
-    ticketDiscount.innerText = discountMessage;
+    ticketDiscount.innerHTML = discountMessage;
 
 
     // Calcolo il prezzo finale del biglietto riportandolo a schermo
