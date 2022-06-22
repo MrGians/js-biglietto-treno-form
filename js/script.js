@@ -7,8 +7,7 @@
 - Definire il prezzo del biglietto (0,21 € al KM)
 - Calcolo eventuale scontistica del prezzo finale
 
-- Calcolare il prezzo Finale del biglietto * KM scelti dall'utente
-- Output del prezzo finale con massimo 2 decimali stampato su pagina
+- Calcolare il prezzo Finale del biglietto + Output con massimo 2 decimali stampato su pagina
 
 - Bonus
 */
@@ -25,7 +24,7 @@ const resetBtn = document.getElementById("reset-btn");
 const ticketDiscount = document.getElementById("ticket-discount");
 const ticketFinalPrice = document.getElementById("ticket-final-price");
 
-
+const validationMessage = document.getElementById("validation-message");
 
 
 // Recupero informazioni utente tramite Bottone "Genera"
@@ -34,22 +33,21 @@ createTicketBtn.addEventListener ('click', function() {
   const name = userName.value;
   const km = parseInt(userKm.value);
   const age = userAge.value;
-  console.log("km: " + km);
-  console.log("name: " + name);
-  console.log("age: " + age);
 
-  // TO DO VERIFICATION FROM HERE ***************************************
+  // Validazione inserimento dati utente
   if (!isNaN(name) || isNaN(km) || km <= 0) {
+
     // Non crea nessun biglietto
-    console.log ("ERRORE CREAZIONE TICKET")
+    validationMessage.innerText = "Ops! Non hai inserito correttamente i dati, riprova."
+    ticketFinalPrice.innerText = "Non calcolabile"
 
   } else {
 
-  
-
-
-
+    // Procede con la creazione del biglietto + calcoli
+    validationMessage.innerText = "Hai inserito correttamente tutti i dati, il tuo Biglietto è pronto!"
     ticketName.innerText = name;
+
+
     userName.value = "";
     userKm.value = "";
     userAge.value = "standard";
