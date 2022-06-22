@@ -42,12 +42,17 @@ createTicketBtn.addEventListener ('click', function() {
 
     // Non crea nessun biglietto
     validationMessage.innerText = "Ops! Non hai inserito correttamente i dati, riprova."
+    validationMessage.classList.add ("error");
+    validationMessage.classList.remove ("correct");
     ticketFinalPrice.innerText = "Non calcolabile"
 
   } else {
 
     // Procede con la creazione del biglietto + calcoli
     validationMessage.innerText = "Hai inserito correttamente tutti i dati, il tuo Biglietto è pronto!"
+    validationMessage.classList.add ("correct");
+    validationMessage.classList.remove ("error");
+
     userTicket.classList.remove ("d-none");
     userTicket.classList.add ("d-block");
     ticketName.innerText = name;
@@ -96,5 +101,9 @@ resetBtn.addEventListener('click', function(){
   userAge.value = "standard";
   userTicket.classList.remove ("d-block");
   userTicket.classList.add ("d-none");
+
+  validationMessage.innerText = "Completa correttamente tutti i campi";
+  validationMessage.classList.remove ("error");
+  validationMessage.classList.remove ("correct");
 
 })

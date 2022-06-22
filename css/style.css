@@ -1,9 +1,6 @@
-/*********** Palette color ***********/
-:root{
-    --primary: #;
-    --secondary: #;
-}
-
+/*********** Utilities ***********/
+.correct {color: rgb(14, 107, 14);}
+.error {color: rgb(196, 5, 5);}
 
 /*********** Generics ***********/
 body {background-color: lightseagreen;}
