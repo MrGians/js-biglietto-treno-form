@@ -21,10 +21,13 @@ const userAge = document.getElementById("user-age");
 const createTicketBtn = document.getElementById("create-ticket-btn");
 const resetBtn = document.getElementById("reset-btn");
 
+const userTicket = document.getElementById("user-ticket");
+
 const ticketDiscount = document.getElementById("ticket-discount");
 const ticketFinalPrice = document.getElementById("ticket-final-price");
 
 const validationMessage = document.getElementById("validation-message");
+
 
 
 // Recupero informazioni utente tramite Bottone "Genera"
@@ -45,6 +48,8 @@ createTicketBtn.addEventListener ('click', function() {
 
     // Procede con la creazione del biglietto + calcoli
     validationMessage.innerText = "Hai inserito correttamente tutti i dati, il tuo Biglietto è pronto!"
+    userTicket.classList.remove ("d-none");
+    userTicket.classList.add ("d-block");
     ticketName.innerText = name;
 
 
@@ -88,6 +93,8 @@ createTicketBtn.addEventListener ('click', function() {
 resetBtn.addEventListener('click', function(){
   userName.value = "";
   userKm.value = "";
-  userAge.value = "";
+  userAge.value = "standard";
+  userTicket.classList.remove ("d-block");
+  userTicket.classList.add ("d-none");
 
 })
