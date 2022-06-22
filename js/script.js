@@ -28,6 +28,21 @@ const ticketFinalPrice = document.getElementById("ticket-final-price");
 
 const validationMessage = document.getElementById("validation-message");
 
+// randomizing cab & cp-code values
+const ticketCab = document.getElementById("cab");
+const randomCab = Math.random();
+const maxCab = 20;
+const minCab = 1;
+
+let resultCab = Math.floor(randomCab * (maxCab + 1 - minCab)) + minCab;
+
+const ticketCpCode = document.getElementById("cp-code");
+const randomCpCode = Math.random();
+const maxCpCode = 900000;
+const minCpCode = 1;
+
+let resultCpCode = Math.floor(randomCpCode * (maxCpCode + 1 - minCpCode)) + minCpCode;
+
 
 
 // Recupero informazioni utente tramite Bottone "Genera"
@@ -56,10 +71,11 @@ createTicketBtn.addEventListener ('click', function() {
     userTicket.classList.remove ("d-none");
     userTicket.classList.add ("d-block");
     ticketName.innerText = name;
-
+    ticketCab.innerText = resultCab;
+    ticketCpCode.innerText = resultCpCode;
 
     userName.value = "";
-    userKm.value = "";
+    userKm.value = "1";
     userAge.value = "standard";
 
 
@@ -97,7 +113,7 @@ createTicketBtn.addEventListener ('click', function() {
 // Resetto informazioni utente tramite Bottone "Annulla"
 resetBtn.addEventListener('click', function(){
   userName.value = "";
-  userKm.value = "";
+  userKm.value = "1";
   userAge.value = "standard";
   userTicket.classList.remove ("d-block");
   userTicket.classList.add ("d-none");
