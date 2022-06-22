@@ -32,12 +32,16 @@
                             <!-- User KM -->
                             <div class="col-3">
                                 <label for="user-km" class="h6">Km da percorrere</label>
-                                <input class="rounded-2" type="text" id="user-km" placeholder="45">
+                                <input class="rounded-2" type="number" id="user-km" placeholder="45">
                             </div>
                             <!-- User Age -->
                             <div class="col-3">
-                                <label for="user-age" class="h6">Fascia d'età</label>
-                                <input class="rounded-2" type="text" id="user-age" placeholder="24">
+                                <label for="user-age" class="h6">Fascia d'età</label><br>
+                                <select class="rounded-2" type="text" id="user-age" placeholder="24">
+                                    <option value="minor">Minorenne</option>
+                                    <option value="standard" selected>Maggiorenne</option>
+                                    <option value="major">Over 65</option>
+                                </select>
                             </div>
                             <!-- Button Form CTA -->
                             <div class="col-12 mt-5">
@@ -76,7 +80,7 @@
                                     <!-- Offerta -->
                                     <div class="col">
                                         <h6>Offerta</h6>
-                                        <span id="ticket-discount">Biglietto Standard</span>
+                                        <span id="ticket-discount"></span>
                                     </div>
                                     <!-- Carrozza -->
                                     <div class="col">
