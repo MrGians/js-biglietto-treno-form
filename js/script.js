@@ -72,17 +72,14 @@ createTicketBtn.addEventListener ('click', function() {
 
     // Calcolo eventuale Discount
     let discountMessage = "Biglietto Standard";
-    let hasDiscount = false;
 
     if (age === "minor") {
 
-      hasDiscount = true;
       price *= 0.8;
       discountMessage = '<span class="correct">Sconto -20%</span>';
 
     } else if (age === "major") {
 
-      hasDiscount = true;
       price *= 0.6;
       discountMessage = '<span class="correct">Sconto -40%</span>';
     }
