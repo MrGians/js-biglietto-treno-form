@@ -15,33 +15,19 @@
 
 // Definisco variabili globali
 const userName = document.getElementById("user-name");
-const ticketName = document.getElementById("ticket-name");
 const userKm = document.getElementById("user-km");
 const userAge = document.getElementById("user-age");
 const createTicketBtn = document.getElementById("create-ticket-btn");
 const resetBtn = document.getElementById("reset-btn");
 
 const userTicket = document.getElementById("user-ticket");
-
+const ticketName = document.getElementById("ticket-name");
 const ticketDiscount = document.getElementById("ticket-discount");
+const ticketCab = document.getElementById("cab");
+const ticketCpCode = document.getElementById("cp-code");
 const ticketFinalPrice = document.getElementById("ticket-final-price");
 
 const validationMessage = document.getElementById("validation-message");
-
-// randomizing cab & cp-code values
-const ticketCab = document.getElementById("cab");
-const randomCab = Math.random();
-const maxCab = 20;
-const minCab = 1;
-
-let resultCab = Math.floor(randomCab * (maxCab + 1 - minCab)) + minCab;
-
-const ticketCpCode = document.getElementById("cp-code");
-const randomCpCode = Math.random();
-const maxCpCode = 900000;
-const minCpCode = 1;
-
-let resultCpCode = Math.floor(randomCpCode * (maxCpCode + 1 - minCpCode)) + minCpCode;
 
 
 
@@ -61,6 +47,9 @@ createTicketBtn.addEventListener ('click', function() {
     validationMessage.classList.remove ("correct");
     ticketFinalPrice.innerText = "Non calcolabile"
 
+    userTicket.classList.add ("d-none");
+    userTicket.classList.remove ("d-block");
+
   } else {
 
     // Procede con la creazione del biglietto + calcoli
@@ -70,13 +59,12 @@ createTicketBtn.addEventListener ('click', function() {
 
     userTicket.classList.remove ("d-none");
     userTicket.classList.add ("d-block");
-    ticketName.innerText = name;
-    ticketCab.innerText = resultCab;
-    ticketCpCode.innerText = resultCpCode;
-
+    
     userName.value = "";
     userKm.value = "1";
     userAge.value = "standard";
+    
+    ticketName.innerText = name;
 
 
     // Definisco il prezzo del biglietto
@@ -100,6 +88,14 @@ createTicketBtn.addEventListener ('click', function() {
     }
 
     ticketDiscount.innerHTML = discountMessage;
+
+
+    // Calcolo Cab & Cp-Code
+    let resultCab = Math.floor(Math.random() * 20) + 1;
+    let resultCpCode = Math.floor(Math.random() * 99999) + 1;
+
+    ticketCab.innerText = resultCab;
+    ticketCpCode.innerText = resultCpCode;
 
 
     // Calcolo il prezzo finale del biglietto riportandolo a schermo
